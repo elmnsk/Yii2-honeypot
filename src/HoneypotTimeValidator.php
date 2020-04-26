@@ -13,6 +13,8 @@ class HoneypotTimeValidator extends Validator
      */
     public $time = 5;
 
+    public $skipOnEmpty = false;
+
     public function init()
     {
         parent::init();
