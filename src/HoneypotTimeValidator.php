@@ -34,14 +34,15 @@ class HoneypotTimeValidator extends Validator
     {
         $value = $model->$attribute;
 
-        list($time, $hash) = explode('|', $value);
-
-        if (!$this->validateTime($time,$hash,$attribute)) {
-            $this->addError($model, $attribute, $this->message);
+        if(strpos($value,'|') === false){
+            $model->addError($attribute, $this->message);
+            return;
         }
 
-        if (($time + $this->time) > time()) {
-            $this->addError($model, $attribute, $this->message);
+        list($time, $hash) = explode('|', $value);
+
+        if (!$this->validateTime($time,$hash,$attribute) || ($time + $this->time) > time()) {
+            $model->addError($attribute, $this->message);
         }
     }
 

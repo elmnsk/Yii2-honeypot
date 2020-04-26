@@ -28,6 +28,9 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
+//model property
+public $honeypotTime;
+
 //in model rules
  ['honeypotTime',\elmnsk\honeypot\HoneypotTimeValidator::class,'time'=>10];
 ```
