@@ -32,12 +32,12 @@ Once the extension is installed, simply use it in your code by  :
 public $honeypotTime;
 
 //in model rules
- ['honeypotTime',\elmnsk\honeypot\HoneypotTimeValidator::class,'time'=>10];
+ ['honeypotTime',\elmnsk\yii2honeypot\HoneypotTimeValidator::class,'time'=>10];
 ```
 
 ```php
 <?=$form->field($model,'honeypotTime')
-            ->widget(\elmnsk\honeypot\HoneypotTimeWidget::class)->label(false);?>
+            ->widget(\elmnsk\yii2honeypot\HoneypotTimeWidget::class)->label(false);?>
 ```
 
 'time' - this is the time in seconds, less than which the form submission will be detected as spam
